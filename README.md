@@ -27,4 +27,4 @@ The important logic is held in the Zustand based stores, one of them being the [
 
 ### ./server
 
-As such the server directory is not used much anymore at this stage.  The main exception there is that it holds [sqlStuff](server/sqlStuff), all of the important sql commands are located there and they're used to set up the database.
+Since the client hits the database (Supabase) directly the server directory is not used much anymore at this stage.  The main exception there is that it holds [sqlStuff](server/sqlStuff), all of the important sql commands are located there and they're used to set up the database.
