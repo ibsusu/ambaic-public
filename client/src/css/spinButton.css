@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,700;1,400&family=Saira+Semi+Condensed:wght@600;700&display=swap');
+
+.spinButton {
+  font-family: "Saira Semi Condensed";
+  background-color: #ea2727;
+  color:#ffffff;
+  width:400px;
+  height:600px;
+  text-transform: uppercase;
+  display: grid;
+  /* display: inline-block; */
+  place-items: center;
+  /* flex-direction: column; */
+  position: absolute;
+  top: 4000px;
+
+  /* Bump: */
+}
+
+.block {
+  display:inline-block;
+}
+.spinButton.spinButtonSide {
+  width:600px;
+  height: 100px;
+  font-size:2rem;
+  position: absolute;
+  top: 4000px;
+  right: 0px;
+  z-index:-1;
+  background-color: #ea2727;
+}
+
+.spinButtonClicked {
+  font-family: "Saira Semi Condensed";
+  background-color: #78affd;
+  color:#ffffff;
+  width:400px;
+  height:600px;
+  text-transform: uppercase;
+  display: grid;
+  /* display: inline-block; */
+  place-items: center;
+  /* flex-direction: column; */
+  position: absolute;
+  top: 4000px;
+}
+
+.block {
+  display:inline-block;
+}
+.spinButtonClicked.spinButtonSide {
+  width:600px;
+  height: 100px;
+  font-size:2rem;
+  position: absolute;
+  top: 4000px;
+  right: 0px;
+  z-index:-1;
+  background-color: #78affd;
+}
+
+.left-wrap {
+  width: 220px;
+  line-height: 1.13;
+  font-weight: 700;
+  transform:scaleX(0.85);
+  position: relative;
+  top:0px;
+  left:30px;
+  letter-spacing: 2.7px;
+
+}
+
+.right-wrap {
+  width: 280px;
+  line-height: 1.13;
+  font-weight: 700;
+  transform:scaleX(0.85);
+  position: relative;
+  top:0px;
+  left:30px;
+  letter-spacing: 1.0px;
+
+}
+
+.right-wrap .and {
+
+  position:relative;
+  top:5px;
+  transform: scale(0.65);
+
+}
+
+.title {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.15;
+  margin-top: 46px;
+  transform: scaleX(0.85);
+  letter-spacing: 2.7px;
+  text-align: center;
+}
+
+
+.emphasized {
+  letter-spacing: 1px;
+  font-size:68px;
+}

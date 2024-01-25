@@ -1,0 +1,14 @@
+{
+  "appId": "com.cardconquest.app",
+  "appName": "card_conquest",
+  "androidClientId": "*******.apps.googleusercontent.com",
+  "clientId": "*******",
+  "iosClientId": "*******.apps.googleusercontent.com",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}

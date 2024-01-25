@@ -1,0 +1,24 @@
+{
+  "folders": [
+    {
+      "name": "project-root",
+      "path": "./"
+    },
+    {
+      "name": "client",
+      "path": "client"
+    },
+    {
+      "name": "server",
+      "path": "server"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "node_modules/": true,
+      "client/": true,
+      "server/": true,
+    },
+    "typescript.tsdk": "client/node_modules/typescript/lib",
+  }
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ambaic Realms</title>
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script>
+    <style>
+      .things{
+        background-color: red;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/spinButton.css" />
+    <meta name="theme-color" content="#31d53d" />
+    <!-- <script type="module" defer>
+      import * as THREE from 'three';
+      import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+      function blk(text){
+        const block = document.createElement('div');
+        block.style.width = '300px';
+        block.style.height = '300px';
+        block.style.position = 'absolute';
+        block.style.zIndex = 100;
+        block.style.backgroundColor = 'red';
+        block.style.top = '30px';
+        block.style.left = '30px';
+        block.innerText = text ?? 'debugger';;
+        block.style.fontSize = '18px';
+
+        document.body.appendChild(block);
+      }
+      (function() {
+        var ambientLight, animate, bigit, camera, cubemap, displacementMap, geometry, map, material, mesh, normalMap, onWindowResize, pointLight3, renderer, roughnessMap, smallit, spinit, textureLoader, urls;
+        const glbLoader = new GLTFLoader();
+        window.scene = new THREE.Scene();
+        scene.background = new THREE.Color( 0xf1f1f1 );
+        let card;
+        
+
+        renderer = new THREE.WebGL1Renderer({
+          antialias: true,
+        });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        renderer.setPixelRatio(2);
+
+        camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight);
+
+        camera.position.z = 150;
+
+        document.body.appendChild(renderer.domElement);
+
+        textureLoader = new THREE.TextureLoader();
+
+        textureLoader.setCrossOrigin("anonymous");
+
+        map = textureLoader.load("https://s3-us-west-2.amazonaws.com/s.cdpn.io/65874/diffuse.jpg");
+
+        normalMap = textureLoader.load("https://s3-us-west-2.amazonaws.com/s.cdpn.io/65874/normal.jpg");
+
+        displacementMap = textureLoader.load("https://s3-us-west-2.amazonaws.com/s.cdpn.io/65874/displacement.jpg");
+
+        roughnessMap = textureLoader.load("https://s3-us-west-2.amazonaws.com/s.cdpn.io/65874/reflection.jpg");
+
+        urls = ['https://s3-us-west-2.amazonaws.com/s.cdpn.io/65874/pos-x.png', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/65874/neg-x.png', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/65874/pos-y.png', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/65874/neg-y.png', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/65874/pos-z.png', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/65874/neg-z.png'];
+        
+        cubemap = new THREE.CubeTextureLoader().setCrossOrigin("anonymous").load(urls);
+
+        cubemap.format = THREE.RGBAFormat;
+
+        geometry = new THREE.BoxGeometry(60, 60, 60, 1, 1, 1);
+        // geometry = new THREE.BoxGeometry( 1, 1, 1 );
+
+        material = new THREE.MeshBasicMaterial({
+          color: 0x888888,
+          map: map,
+          normalMap: normalMap,
+          displacementMap: displacementMap,
+          displacementBias: -0.5,
+          roughnessMap: roughnessMap,
+          envMap: cubemap,
+          envMapIntensity: 0.5
+        });
+
+        mesh = new THREE.Mesh(geometry, material);
+
+        mesh.rotation.z = 0.4;
+
+        mesh.rotation.x = -1.23;
+
+        // scene.add(mesh);
+
+        ambientLight = new THREE.AmbientLight(0xffffff, 1.3);
+
+        scene.add(ambientLight);
+
+        pointLight3 = new THREE.PointLight(0xB5CDFF, 0.2);
+
+        pointLight3.position.x = 0;
+
+        pointLight3.position.y = 0;
+
+        pointLight3.position.z = 1000;
+
+        scene.add(pointLight3);
+        
+
+
+        animate = function() {
+          return renderer.render(scene, camera);
+        };
+
+        animate();
+
+        // Events
+        TweenMax.ticker.addEventListener('tick', animate);
+
+        onWindowResize = function() {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          return renderer.setSize(window.innerWidth, window.innerHeight);
+        };
+
+        window.addEventListener('resize', onWindowResize, false);
+
+        spinit = document.querySelector('.spin-it');
+
+        spinit.onclick = function() {
+          var value;
+          value = Math.random() * 3;
+          return TweenMax.to(card.rotation, 5, {
+            ease: Elastic.easeOut.config(1, 0.5),
+            y: `+=${value}`,
+            x: `+=${value}`
+          });
+        };
+
+        bigit = document.querySelector('.big-it');
+
+        bigit.onclick = function() {
+          return TweenMax.to(card.position, 5, {
+            ease: Elastic.easeOut.config(1, 0.5),
+            z: "+=30"
+          });
+        };
+
+        smallit = document.querySelector('.small-it');
+
+        smallit.onclick = function() {
+          return TweenMax.to(card.position, 5, {
+            ease: Elastic.easeOut.config(1, 0.5),
+            z: "-=30"
+          });
+        };
+
+        glbLoader.load('assets/models/cards/nance.gltf',(glb) => {
+            card = glb.scene;
+            window.renderer = renderer;
+            // card.children[0].material.map.minFilter = THREE.LinearFilter;
+            // card.children[0].material.map.anisotropy = renderer.capabilities.getMaxAnisotropy();
+
+
+            card.position.x = 0;
+            card.position.y = 0;
+            card.position.z = 0;
+            card.rotation.x = 5;
+            // card.rotation.y = 5;
+            // card.rotation.z = 5;
+            card.scale.setScalar(50);
+            scene.add(card);
+
+            window.card = card;
+            console.log(card);
+          },
+          function ( xhr ) {
+            console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+          },
+          function ( error ) {
+            console.log( 'An error happened' );
+          }
+        );
+
+      }).call(this);
+
+    </script> -->
+  </head>
+  <body>
+    <!-- <capacitor-welcome></capacitor-welcome> -->
+
+    <!-- <script src="./js/capacitor-welcome.js" type="module"></script> -->
+    <script src="./js/index.tsx" type="module"></script>
+    <div id="siteRoot"></div>
+    <div class="spinButton">
+      <div class="title">Spin</div>
+    </div>
+    
+    <div class="spinButton spinButtonSide">
+      <div class="left-wrap block"></div>
+      <div class="center-dot block"></div>
+      <div class="right-wrap block"></div>
+      <div class="fsg-box block">
+        <span class="topNumber" style="
+        font-size: 1rem;
+        top: -2px;
+        position: relative;
+        " ></span>
+        <span class="fish"></span>
+        <span class="fish flipped"></span>
+        <span class="fish"></span>
+        <span class="bottomNumber"></span>
+      </div>
+    </div>
+    
+    <div class="spinButtonClicked">
+      <div class="title">Spin</div>
+    </div>
+    
+    <div class="spinButtonClicked spinButtonSide">
+      <div class="left-wrap block"></div>
+      <div class="center-dot block"></div>
+      <div class="right-wrap block"></div>
+      <div class="fsg-box block">
+        <span class="topNumber" style="
+        font-size: 1rem;
+        top: -2px;
+        position: relative;
+        " ></span>
+        <span class="fish"></span>
+        <span class="fish flipped"></span>
+        <span class="fish"></span>
+        <span class="bottomNumber"></span>
+      </div>
+    </div>
+  </body>
+</html>

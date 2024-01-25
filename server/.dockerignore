@@ -1,0 +1,7 @@
+.git
+litefs
+node_modules
+.dockerignore
+bun.lockb
+Dockerfile
+fly.toml

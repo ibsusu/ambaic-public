@@ -1,0 +1,4 @@
+BEGIN
+    NEW.ac := NULL;
+    RETURN NEW;
+END;
