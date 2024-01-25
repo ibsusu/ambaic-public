@@ -18,7 +18,7 @@ VITE_PUBLIC_DOMAIN=http://localhost:5173
 VITE_PUBLIC_API_URL=http://localhost:3001
 ```
 
-ask and I'll provide the public and anon keys but since this repo is public I'm not putting the file in.  This project is unfinished so there're some inefficiencies in how assets are loaded.
+ask and I'll provide the public url and anon keys but since this repo is public I'm not putting the file in.  This project is unfinished so there're some inefficiencies in how assets are loaded.
 
 The button texture is generated from HTML [index.html](client/src/index.html#L235) in Button.load [SlotScreen.ts](client/src/js/core/levels/SlotScreen.ts#L22).  The DOM holds the source of the texture of the button and allows us to get text onto a 3D model.  It's nice because we can do our designs in html + css.  It's bad because it takes time to process it client side.  there are obvious fixes but none I'll do right now.
 
